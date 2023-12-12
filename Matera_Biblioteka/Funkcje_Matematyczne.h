@@ -8,19 +8,19 @@ namespace Matematyka {
 		friend class Testy;
 	static 	double deg_na_rad(T t);
 	public:
-		
-	static	T Dodawanie(T t, T x);
-		
-		static	T Odejmowanie(T t, T x);
-		
-		static	T Mnozenie(T t, T x);
-		
-		static	T Dzielenie(T t, T x);
+		template <typename X>
+	static	T Dodawanie(T t, X x);
+	template <typename X>
+		static	T Odejmowanie(T t, X x);
+		template <typename X>
+		static	T Mnozenie(T t, X x);
+		template <typename X>
+		static	T Dzielenie(T t, X x);
 		static	T Potegowanie(T t,int x);
 		static	T Pierwiastkowanie(T t);
 		static	T Log(T t);
-		
-		static	T Log_Podst(T t, T x);
+		template <typename X>
+		static	T Log_Podst(T t, X x);
 		static		T Sinus(T t);
 		static		T Cosinus(T t);
 		static		T Tangens(T t);
@@ -35,29 +35,29 @@ namespace Matematyka {
 		return t * PI / 180;
 	}
 
-	template<typename T> 
-	T Funkcje_Matematyczne<T>::Dodawanie(T skl1, T skl2)
+	template<typename T> template <typename X>
+	T Funkcje_Matematyczne<T>::Dodawanie(T skl1, X skl2)
 	{
 		return skl1 + skl2;
 	}
 
-	template<typename T> 
-	T Funkcje_Matematyczne<T>::Odejmowanie(const T odejmowana, const T odejma)
+	template<typename T> template <typename X>
+	T Funkcje_Matematyczne<T>::Odejmowanie( T odejmowana,  X odejma)
 	{
 		
 		return odejmowana - odejma ;
 	}
 
 
-	template<typename T> 
-	T Funkcje_Matematyczne<T>::Mnozenie(T cz1, T cz2)
+	template<typename T> template <typename X>
+	T Funkcje_Matematyczne<T>::Mnozenie(T cz1, X cz2)
 	{
 		return cz1 * cz2;
 	}
 
 
-	template<typename T> 
-	T Funkcje_Matematyczne<T>::Dzielenie(T Dzielna, T Dzielnik)
+	template<typename T> template <typename X>
+	T Funkcje_Matematyczne<T>::Dzielenie(T Dzielna, X Dzielnik)
 	{
 		return Dzielna / Dzielnik;
 
@@ -93,8 +93,8 @@ namespace Matematyka {
 	{
 		return log(argument);
 	}
-	template<typename T> 	
-	T Funkcje_Matematyczne<T>::Log_Podst(T argument, T podstawa)
+	template<typename T> 	template <typename X>
+	T Funkcje_Matematyczne<T>::Log_Podst(T argument, X podstawa)
 	{
 		return Log(argument) / Log(podstawa);
 	}
