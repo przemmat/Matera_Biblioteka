@@ -129,11 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Funkcje_Matematyczne.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Testy.cpp" />
     <ClCompile Include="Wektor.cpp" />
     <ClCompile Include="Wektor_3d.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Funkcje_Matematyczne.h" />
+    <ClInclude Include="Testy.h" />
     <ClInclude Include="Wektor.h" />
     <ClInclude Include="Wektor_3d.h" />
   </ItemGroup>

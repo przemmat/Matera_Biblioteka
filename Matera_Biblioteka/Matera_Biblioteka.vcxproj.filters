@@ -27,6 +27,9 @@
     <ClCompile Include="Funkcje_Matematyczne.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Testy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Wektor.h">
@@ -36,6 +39,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Funkcje_Matematyczne.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Testy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

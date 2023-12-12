@@ -10,7 +10,7 @@ namespace Matematyka {
 	{
 
 	}
-	Wektor Wektor::dodawanie(Wektor w1, Wektor w2)
+	Wektor  Wektor::dodawanie(Wektor w1, Wektor w2)
 	{
 		Wektor w((w1.x + w2.x), (w1.y + w2.y));
 		return w;

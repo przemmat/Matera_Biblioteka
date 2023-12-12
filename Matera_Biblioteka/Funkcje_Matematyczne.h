@@ -1,28 +1,133 @@
 #pragma once
+#include <math.h>
+#define PI 3.14159265
 namespace Matematyka {
 	template<typename T>
 	class Funkcje_Matematyczne
 	{
-		template<typename X>
-		T Dodawanie(T t, X x);
-		template<typename X>
-		T Odejmowanie(T t, X x);
-		template<typename X>
-		T Mnozenie(T t, X x);
-		template<typename X>
-		T Dzielenie(T t, X x);
-		T Potegowanie(T t,int x);
-		T Pierwiastkowanie(T t);
-		T Log(T t);
-		template<typename X>
-		T Log_Podst(T t, X x);
-		T Sinus(T t);
-		T Cosinus(T t);
-		T Tangens(T t);
-		T Cotangens(T t);
-		T Wartosc_Bezwzgledna(T t);
-		T Zaokr_w_dol(T t);
-		T Zaokr_w_gore(T t);
+		friend class Testy;
+	static 	double deg_na_rad(T t);
+	public:
+		
+	static	T Dodawanie(T t, T x);
+		
+		static	T Odejmowanie(T t, T x);
+		
+		static	T Mnozenie(T t, T x);
+		
+		static	T Dzielenie(T t, T x);
+		static	T Potegowanie(T t,int x);
+		static	T Pierwiastkowanie(T t);
+		static	T Log(T t);
+		
+		static	T Log_Podst(T t, T x);
+		static		T Sinus(T t);
+		static		T Cosinus(T t);
+		static		T Tangens(T t);
+		static		T Cotangens(T t);
+		static		T Wartosc_Bezwzgledna(T t);
+		static		T Zaokr_w_dol(T t);
+		static		T Zaokr_w_gore(T t);
 	};
+	template<typename T>
+	double Funkcje_Matematyczne<T>::deg_na_rad(T t)
+	{
+		return t * PI / 180;
+	}
 
+	template<typename T> 
+	T Funkcje_Matematyczne<T>::Dodawanie(T skl1, T skl2)
+	{
+		return skl1 + skl2;
+	}
+
+	template<typename T> 
+	T Funkcje_Matematyczne<T>::Odejmowanie(const T odejmowana, const T odejma)
+	{
+		
+		return odejmowana - odejma ;
+	}
+
+
+	template<typename T> 
+	T Funkcje_Matematyczne<T>::Mnozenie(T cz1, T cz2)
+	{
+		return cz1 * cz2;
+	}
+
+
+	template<typename T> 
+	T Funkcje_Matematyczne<T>::Dzielenie(T Dzielna, T Dzielnik)
+	{
+		return Dzielna / Dzielnik;
+
+	}
+
+
+	template<typename T>	T Funkcje_Matematyczne<T>::Potegowanie(T podst, int potega)
+	{
+		if (potega < 0)
+		{
+			return	1 / (Potegowanie(podst, (potega * -1) - 1) * podst);
+		}
+		if (potega == 0) return 1;
+		else return Potegowanie(podst, potega - 1) * podst;
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Pierwiastkowanie(T argument) //https://www.scaler.com/topics/square-root-in-cpp/ u¿yty algorymt pochodzi z tej strony.
+	{
+		if (argument == 1)
+			return 1;
+		double inc = 0.00000000000000000000000000000000000000000001; // To store the increment value.
+
+
+
+
+		for (double i = inc; i < argument; i = i + inc)
+		{
+			if (i * i >= argument) { // If i*i exceeds n we are near the square root.
+				return i;
+			}
+		}
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Log(T argument)
+	{
+		return log(argument);
+	}
+	template<typename T> 	
+	T Funkcje_Matematyczne<T>::Log_Podst(T argument, T podstawa)
+	{
+		return Log(argument) / Log(podstawa);
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Sinus(T argument)
+	{
+		return sin(deg_na_rad(argument));
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Cosinus(T argument)
+	{
+		return cos(deg_na_rad(argument));
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Tangens(T argument)
+	{
+		return tan(deg_na_rad(argument));
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Cotangens(T argument)
+	{
+		return Cosinus(argument) / Sinus(argument);
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Wartosc_Bezwzgledna(T argument)
+	{
+		if (argument < 0)
+			return argument * -1;
+		return argument;
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Zaokr_w_dol(T argument) // implementacja z https://stackoverflow.com/a/26091248
+	{
+		int xi = (int)argument;
+		return argument < xi ? xi - 1 : xi;
+	}
+	template<typename T>	T Funkcje_Matematyczne<T>::Zaokr_w_gore(T argument)
+	{
+		int xi = (int)argument;
+		return argument > xi ? xi + 1 : xi;
+	}
 }
