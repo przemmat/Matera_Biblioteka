@@ -128,13 +128,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Funkcje_Matematyczne.cpp" />
+    <ClCompile Include="GeneratorLiczbLosowych.cpp" />
+    <ClCompile Include="LiczbaWymierna.cpp" />
+    <ClCompile Include="LiczbyDoskonale.cpp" />
+    <ClCompile Include="LiczbyPierwsze.cpp" />
+    <ClCompile Include="Macierz.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OperacjeNaBitach.cpp" />
     <ClCompile Include="Testy.cpp" />
     <ClCompile Include="Wektor.cpp" />
     <ClCompile Include="Wektor_3d.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Funkcje_Matematyczne.h" />
+    <ClInclude Include="GeneratorLiczbLosowych.h" />
+    <ClInclude Include="LiczbaWymierna.h" />
+    <ClInclude Include="LiczbyDoskonale.h" />
+    <ClInclude Include="LiczbyPierwsze.h" />
+    <ClInclude Include="Macierz.h" />
+    <ClInclude Include="OperacjeNaBitach.h" />
     <ClInclude Include="Testy.h" />
     <ClInclude Include="Wektor.h" />
     <ClInclude Include="Wektor_3d.h" />

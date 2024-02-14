@@ -30,6 +30,24 @@
     <ClCompile Include="Testy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Macierz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LiczbyPierwsze.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LiczbyDoskonale.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LiczbaWymierna.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OperacjeNaBitach.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratorLiczbLosowych.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Wektor.h">
@@ -42,6 +60,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Testy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Macierz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LiczbyPierwsze.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LiczbyDoskonale.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LiczbaWymierna.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OperacjeNaBitach.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratorLiczbLosowych.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -73,7 +73,7 @@ namespace Matematyka {
 		if (potega == 0) return 1;
 		else return Potegowanie(podst, potega - 1) * podst;
 	}
-	template<typename T>	T Funkcje_Matematyczne<T>::Pierwiastkowanie(T argument) //https://www.scaler.com/topics/square-root-in-cpp/ u¿yty algorymt pochodzi z tej strony.
+	template<typename T>	T Funkcje_Matematyczne<T>::Pierwiastkowanie(T argument) //https://www.scaler.com/topics/square-root-in-cpp/ uzyty algorymt pochodzi z tej strony.
 	{
 		if (argument == 1)
 			return 1;

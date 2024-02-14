@@ -1,2 +1,1 @@
 #include "Funkcje_Matematyczne.h"
-

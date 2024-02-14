@@ -20,7 +20,7 @@ namespace Matematyka {
 		return sqrt(w.x * w.x + w.y * w.y);
 	}std::string Wektor::pisz()
 	{
-		std::string s = "Wektor: ";
+		std::string s = "";
 		s += " x: " + std::to_string(x) + " y: " + std::to_string(y);
 		return s;
 	}
