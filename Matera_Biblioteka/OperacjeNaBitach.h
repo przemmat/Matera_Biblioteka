@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-namespace Matematyka {
+
     class OperacjeNaBitach
     {
     public:
@@ -12,4 +12,3 @@ namespace Matematyka {
         static std::vector<int> getSetBitPositions(int liczba);
     };
 
-}

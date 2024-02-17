@@ -1,7 +1,11 @@
 #include "Wektor.h"
 #include <math.h>
 #include<string>
-namespace Matematyka {
+std::ostream& operator<<(std::ostream& os, Wektor& w)
+{
+	os << w.pisz();
+	return os;
+}
 	Wektor::Wektor():x(0),y(0)
 	{
 		
@@ -24,12 +28,6 @@ namespace Matematyka {
 		s += " x: " + std::to_string(x) + " y: " + std::to_string(y);
 		return s;
 	}
-	std::ostream& operator<<(std::ostream& os, Wektor& w)
-	{
-		
-		os << w.pisz();
-		return os;
-	}
 	double Wektor::cosinus_wektorow(Wektor w1, Wektor w2)
 	{
 		double top = (w1.x * w2.x + w1.y * w2.y);
@@ -51,8 +49,39 @@ namespace Matematyka {
 		double a = dlugosc_wektora(w1) * dlugosc_wektora(w2) * cosinus_wektorow(w1, w2);
 		return a;
 	}
-}	
-
-
-
-
+	double Wektor::getX()
+	{
+		return x;
+	}
+	double Wektor::getY()
+	{
+		return y;
+	}
+	void Wektor::setX(double wartosc_x)
+	{
+		x = wartosc_x;
+	}
+	void Wektor::setY(double wartosc_y)
+	{
+		y = wartosc_y;
+	}
+	Wektor Wektor::operator+(Wektor w)
+	{
+		return dodawanie(*this, w);
+	}
+	Wektor Wektor::operator-(Wektor w)
+	{
+		return odejmowanie(*this, w);
+	}
+	 double Wektor::operator*(Wektor w)
+	{
+		return mnozenie_skalarne(*this, w);
+	}
+	Wektor Wektor::operator*(double a)
+	{
+		return mnozenie_przez_liczbe(a, *this);
+	}
+	 double Wektor::dlugosc()
+	{
+		return dlugosc_wektora(*this);
+	}

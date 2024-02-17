@@ -1,5 +1,5 @@
 #pragma once
-namespace Matematyka {
+
 	class Testy
 	{
 	public:
@@ -14,4 +14,4 @@ namespace Matematyka {
 		static void test_Macierze();
 		static void test_all();
 	};
-}
+

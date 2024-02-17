@@ -10,7 +10,7 @@
 #include"Wektor.h"
 #include"Wektor_3d.h"
 using namespace std;
-namespace Matematyka {
+
 	bool AreSame(double a, double b)
 	{
 		return fabs(a - b) < 0.00001;
@@ -360,4 +360,3 @@ namespace Matematyka {
 		test_LiczbyPierwsze();
 		test_Macierze();
 	}
-}

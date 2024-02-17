@@ -1,7 +1,7 @@
 #include "Wektor_3d.h"
 #include <math.h>
 #include <string>
-namespace Matematyka {
+
 	Wektor_3d::Wektor_3d() :Wektor(), z(0)
 	{
 
@@ -64,4 +64,35 @@ namespace Matematyka {
 		 return top / bot;
 	}
 
-}
+	 void Wektor_3d::setZ(double wartosc_z)
+	 {
+		 z = wartosc_z;
+	 }
+	 double Wektor_3d::getZ()
+	 {
+		 return z;
+	 }
+	  Wektor_3d Wektor_3d::operator+(Wektor_3d w)
+	 {
+		 return dodawanie(*this, w);
+	 }
+	  Wektor_3d Wektor_3d::operator-(Wektor_3d w)
+	 {
+		 return odejmowanie(*this, w);
+	 }
+	  double Wektor_3d::operator*(Wektor_3d w)
+	 {
+		 return mnozenie_skalarne(*this, w);
+	 }
+	  Wektor_3d Wektor_3d::operator*(double a)
+	 {
+		 return mnozenie_przez_liczbe(a, *this);
+	 }
+	  double Wektor_3d::dlugosc()
+	 {
+		 return dlugosc_wektora(*this);
+	 }
+	 Wektor_3d Wektor_3d::mnozenie_wektor(Wektor_3d w1)
+	 {
+		 return mnozenie_wektorowe(*this, w1);
+	 }

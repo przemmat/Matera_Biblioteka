@@ -1,5 +1,5 @@
 #include "LiczbyPierwsze.h"
-namespace Matematyka {
+
 LiczbyPierwsze::LiczbyPierwsze(int max )
 {
     pierwszeTablica.resize(max + 1, true);
@@ -24,4 +24,4 @@ std::vector<int> LiczbyPierwsze::liczbyPierwszeDo(int max) {
         }
     }
     return wynik;
-}}
+}

@@ -1,5 +1,5 @@
 #include "OperacjeNaBitach.h"
-namespace Matematyka {
+
 
     bool OperacjeNaBitach::getBit(int liczba, int pozycja) {
         return (liczba & (1 << pozycja)) != 0;
@@ -28,14 +28,13 @@ namespace Matematyka {
     }
     std::vector<int> OperacjeNaBitach::getSetBitPositions(int liczba) {
         std::vector<int> pozycje;
-        int position = 0;
+        int pos = 0;
         while (liczba) {
             if (liczba & 1) {
-                pozycje.push_back(position);
+                pozycje.push_back(pos);
             }
             liczba >>= 1;
-            ++position;
+            ++pos;
         }
         return pozycje;
     }
-}

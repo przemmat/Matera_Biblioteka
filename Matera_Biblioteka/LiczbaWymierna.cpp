@@ -1,6 +1,6 @@
 #include "LiczbaWymierna.h"
 #include <algorithm>
-namespace Matematyka {
+
     int NajwiekszyWspolnyDzielnik(int a, int b) {
         while (b != 0) {
             int temp = b;
@@ -51,4 +51,3 @@ namespace Matematyka {
         }
         return os;
     }
-}

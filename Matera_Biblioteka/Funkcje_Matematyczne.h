@@ -1,16 +1,15 @@
 #pragma once
 #include <math.h>
 #define PI 3.14159265
-namespace Matematyka {
+
 	template<typename T>
 	class Funkcje_Matematyczne
 	{
-		friend class Testy;
-	static 	double deg_na_rad(T t);
+		static 	double deg_na_rad(T t);
 	public:
 		template <typename X>
-	static	T Dodawanie(T t, X x);
-	template <typename X>
+		static	T Dodawanie(T t, X x);
+		template <typename X>
 		static	T Odejmowanie(T t, X x);
 		template <typename X>
 		static	T Mnozenie(T t, X x);
@@ -21,13 +20,13 @@ namespace Matematyka {
 		static	T Log(T t);
 		template <typename X>
 		static	T Log_Podst(T t, X x);
-		static		T Sinus(T t);
-		static		T Cosinus(T t);
-		static		T Tangens(T t);
-		static		T Cotangens(T t);
-		static		T Wartosc_Bezwzgledna(T t);
-		static		T Zaokr_w_dol(T t);
-		static		T Zaokr_w_gore(T t);
+		static	T Sinus(T t);
+		static	T Cosinus(T t);
+		static	T Tangens(T t);
+		static	T Cotangens(T t);
+		static	T Wartosc_Bezwzgledna(T t);
+		static	T Zaokr_w_dol(T t);
+		static	T Zaokr_w_gore(T t);
 	};
 	template<typename T>
 	double Funkcje_Matematyczne<T>::deg_na_rad(T t)
@@ -79,9 +78,6 @@ namespace Matematyka {
 			return 1;
 		double inc = 0.00000000000000000000000000000000000000000001; // To store the increment value.
 
-
-
-
 		for (double i = inc; i < argument; i = i + inc)
 		{
 			if (i * i >= argument) { // If i*i exceeds n we are near the square root.
@@ -130,4 +126,3 @@ namespace Matematyka {
 		int xi = (int)argument;
 		return argument > xi ? xi + 1 : xi;
 	}
-}

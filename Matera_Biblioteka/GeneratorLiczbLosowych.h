@@ -1,6 +1,6 @@
 #pragma once
 #include <random>
-namespace Matematyka {
+
     class GeneratorLiczbLosowych
     {
         std::mt19937 generator;
@@ -11,4 +11,3 @@ namespace Matematyka {
         double losujZNormalnegoRozkladu(double srednia, double odchylenie);
     };
 
-}

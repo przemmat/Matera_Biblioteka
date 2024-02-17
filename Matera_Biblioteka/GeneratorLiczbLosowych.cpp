@@ -1,5 +1,5 @@
 #include "GeneratorLiczbLosowych.h"
-namespace Matematyka {
+
     GeneratorLiczbLosowych::GeneratorLiczbLosowych() : generator(std::random_device{}()) {}
 
     int GeneratorLiczbLosowych::losujLiczbeCalkowita(int min, int max) {
@@ -16,4 +16,3 @@ namespace Matematyka {
         std::normal_distribution<double> distribution(srednia, odchylenie);
         return distribution(generator);
     }
-}

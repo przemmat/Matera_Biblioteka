@@ -5,7 +5,6 @@
 #include "Funkcje_Matematyczne.h"
 #include "Macierz.h"
 #include "LiczbyPierwsze.h"
-using namespace Matematyka;
 using namespace std;
 void main()
 {

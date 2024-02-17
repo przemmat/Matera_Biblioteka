@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-namespace Matematyka {
+
     class LiczbyDoskonale
     {
         std::vector<bool> doskonaleTablica;
@@ -10,4 +10,3 @@ namespace Matematyka {
         std::vector<int> liczbyDoskonaleDo(int max);
     };
 
-}

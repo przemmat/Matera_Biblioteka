@@ -2,54 +2,72 @@
 #include <iostream>
 #include <string>
 using namespace std;
-namespace Matematyka {
+
 	template <typename T>
 	class Macierz
 	{
 	private:
 		int wiersze;
 		int kolumny;
-
 		void alloctab();
 		void freetab();
+		T** tablica;
 	public:
 		void wypelnij(T x);
-		T** tablica;
-		Macierz(int k, int w, T x = 0)
-		{
-			wiersze = w;
-			kolumny = k;
-			alloctab();
-			wypelnij(x);
-		}
-		Macierz()
-		{
-			wiersze = 3;
-			kolumny = 3;
-			alloctab();
-			wypelnij(0);
-		}
-		int GetWiersze() { return wiersze; }
-		int GetKolumny() { return kolumny; }
-		void SetWiersze(int w) {
-			if (w > 0)wiersze = w;
-			freetab();
-			alloctab();
-		}
-		void SetKolumny(int k) {
-			if (k > 0)kolumny = k;
-			freetab();
-			alloctab();
-		}
+		Macierz(int k, int w, T x = 0);
+		Macierz();
+		int GetWiersze();
+		int GetKolumny();
+		void SetWiersze(int w);
+		void SetKolumny(int k);
 		void Transponuj();
-
 		Macierz<T> operator*(Macierz<T> m);
+		T operator()(int w,int k);
 		T Wyznacznik();
-		Macierz Odwrotna();
+		Macierz<T> Odwrotna();
 		Macierz<T> operator+(Macierz<T> m);
 		Macierz<T> operator-(Macierz<T> m);
 
 	};
+	template<typename T>
+	void Macierz<T>::SetWiersze(int w) {
+		if (w > 0)wiersze = w;
+		freetab();
+		alloctab();
+	}
+		template<typename T>
+	int  Macierz<T>::GetWiersze() { return wiersze; }
+		template<typename T>
+	void Macierz<T>::SetKolumny(int k) {
+		if (k > 0)kolumny = k;
+		freetab();
+		alloctab();
+	}
+		template<typename T>
+	int Macierz<T>::GetKolumny() { return kolumny; }
+	template<typename T>
+	Macierz<T>::Macierz()
+	{
+		
+			wiersze = 3;
+			kolumny = 3;
+			alloctab();
+			wypelnij(0);
+		
+	}
+	template<typename T>
+	Macierz<T>::Macierz(int k, int w, T x )
+	{
+		wiersze = w;
+		kolumny = k;
+		alloctab();
+		wypelnij(x);
+	}
+	template <typename T>
+	T Macierz<T>::operator()(int w, int k)
+	{
+		return tablica[w][k];
+	}
 	template <typename T>
 	void Macierz<T>::wypelnij(T x)
 	{
@@ -161,7 +179,7 @@ namespace Matematyka {
 		for (int i = 0; i < m.GetWiersze(); i++)
 		{
 			for (int j = 0; j < m.GetKolumny(); j++)
-				os << to_string(m.tablica[i][j]) << " ";
+				os << to_string(m(i,j)) << " ";
 			os << "\n";
 		}
 		return os;
@@ -232,4 +250,3 @@ namespace Matematyka {
 
 		return det;
 	}
-}

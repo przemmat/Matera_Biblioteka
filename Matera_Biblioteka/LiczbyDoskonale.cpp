@@ -1,5 +1,5 @@
 #include "LiczbyDoskonale.h"
-namespace Matematyka {
+
     LiczbyDoskonale::LiczbyDoskonale(int max) {
         doskonaleTablica.resize(max + 1, false);
         for (int i = 2; i <= max; ++i) {
@@ -31,4 +31,3 @@ namespace Matematyka {
         }
         return wynik;
     }
-}
