@@ -8,7 +8,7 @@
 using namespace std;
 void main()
 {
-	Testy::test_all();
+	Testy::test_Macierze();
 
 	
 }

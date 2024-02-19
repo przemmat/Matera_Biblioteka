@@ -22,7 +22,7 @@ using namespace std;
 		void SetKolumny(int k);
 		void Transponuj();
 		Macierz<T> operator*(Macierz<T> m);
-		T operator()(int w,int k);
+		T operator()(int w,int k,bool zap=false,int a=0);
 		T Wyznacznik();
 		Macierz<T> Odwrotna();
 		Macierz<T> operator+(Macierz<T> m);
@@ -64,8 +64,14 @@ using namespace std;
 		wypelnij(x);
 	}
 	template <typename T>
-	T Macierz<T>::operator()(int w, int k)
+	T Macierz<T>::operator()(int w, int k,bool zap,int a)
 	{
+		if (zap)
+		{
+			tablica[w][k] = a;
+			return 0;
+	}
+		else
 		return tablica[w][k];
 	}
 	template <typename T>
@@ -79,56 +85,99 @@ using namespace std;
 	}
 	
 	template<typename T>
-		Macierz<T> Macierz<T>::Odwrotna() {
+	Macierz<T> Macierz<T>::Odwrotna() {
 		if (this->wiersze != this->kolumny) {
-			throw std::invalid_argument("Macierz musi byc kwadratowa!");
+			throw std::invalid_argument("Macierz musi byæ kwadratowa!");
 		}
-
-		Macierz<T> rozszerzona(this->wiersze, this->kolumny * 2);
-		for (int i = 0; i < this->wiersze; ++i) {
-			for (int j = 0; j < this->kolumny; ++j) {
-				rozszerzona.tablica[i][j] = this->tablica[i][j];
-			}
-			rozszerzona.tablica[i][i + this->kolumny] = static_cast<T>(1);
+		if (this->Wyznacznik() == 0) {
+			throw std::invalid_argument("Macierz nie ma odwrotnoœci!");
 		}
+		int n = this->wiersze; 
+		T d, temp, c, ** a;
+		int i, j, k, m, nn, * ipvt;
 
-		// Algorytm Gaussa-Jordana
-		for (int i = 0; i < rozszerzona.wiersze; ++i) {
-			int maxRow = i;
-			for (int j = i + 1; j < rozszerzona.wiersze; ++j) {
-				if (std::abs(rozszerzona.tablica[j][i]) > std::abs(rozszerzona.tablica[maxRow][i])) {
-					maxRow = j;
+		ipvt = new int[n];
+		nn = n;
+
+		for (i = 0; i < nn; i++)
+			ipvt[i] = i;
+
+		a = new T * [n];
+		for (k = 0; k < n; k++)
+			a[k] = new T[n];
+
+		try {
+			
+			for (i = 0; i < n; i++) {
+				for (j = 0; j < n; j++) {
+					a[i][j] = this->tablica[i][j];
 				}
 			}
-			for (int k = 0; k < rozszerzona.kolumny; ++k) {
-				std::swap(rozszerzona.tablica[i][k], rozszerzona.tablica[maxRow][k]);
-			}
-			T pivot = rozszerzona.tablica[i][i];
-			if (pivot == static_cast<T>(0)) {
-				throw std::runtime_error("Macierz nie ma odwrotnosci!");
-			}
-			for (int k = 0; k < rozszerzona.kolumny; ++k) {
-				rozszerzona.tablica[i][k] /= pivot;
-			}
-			for (int j = 0; j < rozszerzona.wiersze; ++j) {
-				if (j != i) {
-					T factor = rozszerzona.tablica[j][i];
-					for (int k = 0; k < rozszerzona.kolumny; ++k) {
-						rozszerzona.tablica[j][k] -= factor * rozszerzona.tablica[i][k];
+
+			// Algorytm Gaussa-Jordana
+			for (k = 0; k < nn; k++) {
+				temp = 0.;
+				m = k;
+				for (i = k; i < nn; i++) {
+					d = a[k][i];
+					if (fabs(d) > temp) {
+						temp = fabs(d);
+						m = i;
 					}
 				}
+				if (m != k) {
+					j = ipvt[k];
+					ipvt[k] = ipvt[m];
+					ipvt[m] = j;
+					for (j = 0; j < nn; j++) {
+						temp = a[j][k];
+						a[j][k] = a[j][m];
+						a[j][m] = temp;
+					}
+				}
+				d = 1 / a[k][k];
+				for (j = 0; j < k; j++) {
+					c = a[j][k] * d;
+					for (i = 0; i < nn; i++)
+						a[j][i] -= a[k][i] * c;
+					a[j][k] = c;
+				}
+				for (j = k + 1; j < nn; j++) {
+					c = a[j][k] * d;
+					for (i = 0; i < nn; i++)
+						a[j][i] -= a[k][i] * c;
+					a[j][k] = c;
+				}
+				for (i = 0; i < nn; i++)
+					a[k][i] = -a[k][i] * d;
+				a[k][k] = d;
 			}
-		}
 
-		Macierz<T> odwrotna(this->wiersze, this->kolumny);
-		for (int i = 0; i < this->wiersze; ++i) {
-			for (int j = 0; j < this->kolumny; ++j) {
-				odwrotna.tablica[i][j] = rozszerzona.tablica[i][j + this->kolumny];
+	
+			Macierz<T> odwrotna(this->wiersze, this->kolumny);
+
+			for (i = 0; i < nn; i++) {
+				for (j = 0; j < nn; j++) {
+					odwrotna.tablica[ipvt[i]][j] = a[i][j];
+				}
 			}
-		}
 
-		return odwrotna;
+		
+			delete[] ipvt;
+			for (k = 0; k < n; k++)
+				delete[] a[k];
+			delete[] a;
+
+			
+			return odwrotna;
+
+		}
+		catch (...) {
+			
+			throw std::runtime_error("Wyst¹pi³ b³¹d podczas obliczania macierzy odwrotnej.");
+		}
 	}
+
 	template<typename T>
 	void Macierz<T>::Transponuj() {
 		Macierz<T> tmp(this->kolumny, this->wiersze);

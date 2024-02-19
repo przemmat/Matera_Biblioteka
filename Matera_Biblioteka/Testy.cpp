@@ -195,7 +195,9 @@ using namespace std;
 
 		LiczbaWymierna iloraz = liczba1 / liczba2;
 		cout << "Iloraz: " << iloraz << endl;
-
+		LiczbaWymierna liczba3(2, 4);
+		cout << "Stworzono liczbe 2/4, test metody skroc:" << liczba3 << endl;
+		
 		cout << endl;
 	}
 
@@ -237,12 +239,18 @@ using namespace std;
 
 		int n = 100000;
 		LiczbyDoskonale D(n);
-		cout << "Liczby doskonale mniejsze lub rowne " << n << ":\n";
+		cout << "testowanie czyDoskonala do " << n << " w petli:\n";
 		for (int i = 1; i <= n; ++i) {
 			if (D.czyDoskonala(i))
 				cout << i << " ";
 		}
-		cout << endl<<endl;
+		cout << endl << "pobieranie vektora z liczbami za pomoca metody:\n";
+		auto x = D.liczbyDoskonaleDo(n);
+		for (auto a : x)
+		{
+			cout << a<<" ";
+		}
+		cout <<endl<<endl;
 	}
 
 	void Testy::test_LiczbyPierwsze() {
@@ -250,12 +258,18 @@ using namespace std;
 
 		int n = 100;
 		LiczbyPierwsze P(n);
-		cout << "Liczby pierwsze mniejsze lub rowne " << n << ":\n";
+		cout << "testowanie czuPierwsza do " << n << " w petli:\n";
 		for (int i = 1; i <= n; ++i) {
 			if (P.czyPierwsza(i))
 				cout << i << " ";
 		}
-		cout << endl<<endl;
+		cout << endl << "pobieranie vektora z liczbami za pomoca metody:\n";
+		auto x = P.liczbyPierwszeDo(n);
+		for (auto a : x)
+		{
+			cout << a << " ";
+		}
+		cout << endl << endl;
 	}
 
 	void Testy::test_Macierze() {
@@ -277,11 +291,28 @@ using namespace std;
 		Macierz<int> iloczyn = macierz1 * macierz2;
 		cout << "Iloczyn macierzy:\n";
 		cout << iloczyn << endl;
+		 
+		Macierz<int> odej = macierz1 - macierz2;
+		cout << "Odejmowanie macierzy:\n";
+		cout << odej << endl;
 
-	
-		cout << "Wyznacznik macierzy 1:\n";
-		cout << macierz1.Wyznacznik() << endl;
+		macierz1.wypelnij(21);
+		cout << "wypelnianie macierzy1 lcziba 21:\n";
+		cout << macierz1 << endl;
 
+		Macierz<double> m(3, 3);
+		m(0, 0, true, 1);
+		m(0, 1, true, 2);
+		m(0, 2, true, 3);
+		m(1, 0, true, 0);
+		m(1, 1, true, 1);
+		m(1, 2, true, 2);
+		m(2, 0, true, 2);
+		m(2, 1, true, 1);
+		m(2, 2, true, 1);
+		cout << "Macierz do testowania odwrotnej i wyznacznika:" << endl << m;
+		cout << "Wyznacznik: " << m.Wyznacznik() << endl;
+		cout << "odwrotna: \n" << m.Odwrotna()<<endl;
 		cout << endl;
 	}
 	void Testy::test_Wektor()

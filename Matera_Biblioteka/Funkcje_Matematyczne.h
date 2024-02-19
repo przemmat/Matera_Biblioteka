@@ -116,7 +116,7 @@
 			return argument * -1;
 		return argument;
 	}
-	template<typename T>	T Funkcje_Matematyczne<T>::Zaokr_w_dol(T argument) // implementacja z https://stackoverflow.com/a/26091248
+	template<typename T>	T Funkcje_Matematyczne<T>::Zaokr_w_dol(T argument) 
 	{
 		int xi = (int)argument;
 		return argument < xi ? xi - 1 : xi;
