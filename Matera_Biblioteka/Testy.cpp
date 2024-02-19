@@ -381,9 +381,10 @@ using namespace std;
 	}
 	void Testy::test_all()
 	{
+		test_Funkcje();
 		 test_Wektor();
 		 test_Wektor_3d();
-		test_Funkcje();
+	
 		test_LiczbaWymierna();
 		test_OperacjeNaBitach();
 		test_GeneratorLiczbLosowych();

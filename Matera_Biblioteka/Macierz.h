@@ -85,7 +85,7 @@ using namespace std;
 	}
 	
 	template<typename T>
-	Macierz<T> Macierz<T>::Odwrotna() {
+	Macierz<T> Macierz<T>::Odwrotna() { // kod bazowany na https://4programmers.net/Forum/C_i_C++/76878-Macierz_odwrotna_w_c++?p=237591#id237591
 		if (this->wiersze != this->kolumny) {
 			throw std::invalid_argument("Macierz musi byæ kwadratowa!");
 		}

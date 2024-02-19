@@ -76,7 +76,7 @@
 	{
 		if (argument == 1)
 			return 1;
-		double inc = 0.00000000000000000000000000000000000000000001; // To store the increment value.
+		double inc = 0.00000000000001; // To store the increment value.
 
 		for (double i = inc; i < argument; i = i + inc)
 		{
