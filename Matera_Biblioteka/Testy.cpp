@@ -384,7 +384,6 @@ using namespace std;
 		test_Funkcje();
 		 test_Wektor();
 		 test_Wektor_3d();
-	
 		test_LiczbaWymierna();
 		test_OperacjeNaBitach();
 		test_GeneratorLiczbLosowych();

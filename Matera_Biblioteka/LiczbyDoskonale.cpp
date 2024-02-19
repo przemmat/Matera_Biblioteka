@@ -3,23 +3,23 @@
     LiczbyDoskonale::LiczbyDoskonale(int max) {
         doskonaleTablica.resize(max + 1, false);
         for (int i = 2; i <= max; ++i) {
-            if (czyDoskonala(i)) {
-                doskonaleTablica[i] = true;
-            }
-        }
-    }
-
-    bool LiczbyDoskonale::czyDoskonala(int n) {
-        int sum = 1;
-        for (int i = 2; i * i <= n; ++i) {
-            if (n % i == 0) {
-                sum += i;
-                if (i * i != n) {
-                    sum += n / i;
+            int sum = 1;
+            for (int j = 2; j * j <= i; ++j) {
+                if (i % j == 0) {
+                    sum += j;
+                    if (j * j != i) {
+                        sum += i / j;
+                    }
                 }
             }
+            doskonaleTablica[i]= sum == i && i != 1;
+            }
         }
-        return sum == n && n != 1;
+    
+
+    bool LiczbyDoskonale::czyDoskonala(int n) {
+        if(n < 0 || n >= doskonaleTablica.size()) return false;
+        return doskonaleTablica[n];
     }
 
     std::vector<int> LiczbyDoskonale::liczbyDoskonaleDo(int max) {
